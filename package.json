@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/cryptid-org/task/issues"
   },
-  "homepage": "https://github.com/cryptid-org/task#readme"
+  "homepage": "https://github.com/cryptid-org/task#readme",
+  "dependencies": {
+    "cross-spawn": "^6.0.5",
+    "fs-extra": "^7.0.1",
+    "yargs": "^13.2.2"
+  }
 }
