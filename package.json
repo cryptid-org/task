@@ -21,6 +21,7 @@
     "fs-extra": "^7.0.1",
     "yargs": "^13.2.2"
   },
+  "bin": "./src/index.js",
   "files": [
     "/src"
   ]
