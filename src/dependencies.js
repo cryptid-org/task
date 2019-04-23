@@ -1,4 +1,5 @@
 const fs = require('fs-extra');
+const klawSync = require('klaw-sync');
 const spawn = require('cross-spawn');
 const yargs = require('yargs');
 
@@ -26,6 +27,6 @@ const inject = (function loadInject() {
 })();
 
 // The object which will be passed to all command handler factories.
-const dependencies = Object.freeze(Object.assign({}, inject, { fs, spawnSync, yargs }))
+const dependencies = Object.freeze(Object.assign({}, inject, { fs, klawSync, spawnSync, yargs }))
 
 module.exports = dependencies;
