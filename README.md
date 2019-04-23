@@ -26,7 +26,7 @@ Task searches for commands in the `.task/cmd` directory. Commands are simple yar
 
 ### Injecting data
 
-Custom data can be injected into command handlers by supplying an `.task/inject.js` script exporting the data to be injected.
+Custom data can be injected into command handlers by supplying an `.task/inject.js` script. This should export a single function, which when called, produces the injectable data.
 
 ### Example
 
