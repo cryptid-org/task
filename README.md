@@ -14,7 +14,7 @@ Task is not a sophisticated task runner. It just executes scripts and provides a
 
 ## Usage
 
-Just call `npx task <commands and arguments>` in an appropriate repository root.
+Just call `npx @cryptid/task <commands and arguments>` in an appropriate repository root.
 
 In CryptID repositories, you can also use `./task <...>` or `task.bat <...>`.
 
