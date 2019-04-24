@@ -3,6 +3,7 @@ const yargs = require('yargs');
 const dependencies = require('./dependencies')
 
 
+
 function visit(commandObject) {
     // When using yargs, sadly, we cannot inject our own stuff into command handlers (as arguments).
     // We could augment the yargs object with appropriate fields, however, that approach is not really
@@ -17,9 +18,12 @@ function visit(commandObject) {
     const handler = commandObject.handlerFactory && commandObject.handlerFactory(dependencies);
     
     // We need to pass the dependencies down the chain, as multiple `yargs.commandDir`s are
-    // issued. We do this, by patching the builder - the default yargs parameter is thrown out by
-    // the bound subcommand function. Might be just as ugly as patching the yargs object :'(
-    commandObject.builder = commandObject.builder && commandObject.builder.bind(null, subcommand);
+    // issued. We do this, by patching the builder, subcommand is passed first, and then the yargs object.
+    // Might be just as ugly as patching the yargs object :'(
+    if (typeof commandObject.builder == 'function') {
+        const patchedBuilder = yargs => commandObject.builder(subcommand, yargs);
+        commandObject.builder = patchedBuilder;
+    }
 
     return Object.assign({ handler }, commandObject);
 };
