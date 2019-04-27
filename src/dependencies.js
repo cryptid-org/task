@@ -1,4 +1,4 @@
-const fg = requie('fast-glob');
+const fg = require('fast-glob');
 const fs = require('fs-extra');
 const klawSync = require('klaw-sync');
 const spawn = require('cross-spawn');
