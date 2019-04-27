@@ -11,7 +11,7 @@ const paths = require('./paths');
 const spawnSync = function spawnSync(command, args, options) {
     const modifiedOptions = Object.assign({ stdio: 'inherit' }, options);
 
-    console.log(`Executing | ${command} ${args}`);
+    console.log(`Executing | ${command} ${args.join(' ')}`);
 
     return spawn.sync(command, args, modifiedOptions);
 };
