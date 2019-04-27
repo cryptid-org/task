@@ -18,6 +18,7 @@
   "homepage": "https://github.com/cryptid-org/task#readme",
   "dependencies": {
     "cross-spawn": "^6.0.5",
+    "fast-glob": "^2.2.6",
     "fs-extra": "^7.0.1",
     "klaw-sync": "^6.0.0",
     "yargs": "^13.2.2"
