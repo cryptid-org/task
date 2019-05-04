@@ -21,7 +21,8 @@ function visit(commandObject) {
     // issued. We do this, by patching the builder, subcommand is passed first, and then the yargs object.
     // Might be just as ugly as patching the yargs object :'(
     if (typeof commandObject.builder == 'function') {
-        const patchedBuilder = yargs => commandObject.builder(subcommand, yargs);
+        const originalBuilder = commandObject.builder;
+        const patchedBuilder = yargs => originalBuilder(subcommand, yargs);
         commandObject.builder = patchedBuilder;
     }
 
