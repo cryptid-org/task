@@ -4,7 +4,9 @@ const klawSync = require('klaw-sync');
 const spawn = require('cross-spawn');
 const yargs = require('yargs');
 
+const { reportToCoveralls } = require('./coveralls');
 const paths = require('./paths');
+const { tapToJUnit } = require('./tap')
 
 // `spawnSync` is a patched version of `cross-spawn`'s  `spawn.sync`. It simply emits the
 // executable/command name and arguments upon execution. This makes it easier to trace what
@@ -28,6 +30,6 @@ const inject = (function loadInject() {
 })();
 
 // The object which will be passed to all command handler factories.
-const dependencies = Object.freeze(Object.assign({}, inject, { fg, fs, klawSync, spawnSync, yargs }))
+const dependencies = Object.freeze(Object.assign({}, inject, { fg, fs, klawSync, spawnSync, reportToCoveralls, tapToJUnit, yargs }))
 
 module.exports = dependencies;
